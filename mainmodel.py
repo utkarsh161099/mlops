@@ -1,5 +1,8 @@
 import struct
 import numpy as np
+f = open(result,'w')
+
+
 
 def read_idx(filename):
     """Credit: https://gist.github.com/tylerneylon"""
@@ -103,6 +106,6 @@ history = model.fit(x_train, y_train,
 
 score = model.evaluate(x_test, y_test, verbose=0)
 # print('Test loss:', score[0])
-print('Test accuracy:', score[1])
+print(''Test accuracy:', score[1]' , file=fdd)
 
 
