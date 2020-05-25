@@ -14,30 +14,9 @@ x_test = read_idx("./fashion_mnist/t10k-images-idx3-ubyte")
 y_test = read_idx("./fashion_mnist/t10k-labels-idx1-ubyte")
 
 # printing the number of samples in x_train, x_test, y_train, y_test
-print("Initial shape or dimensions of x_train", str(x_train.shape))
 
-print ("Number of samples in our training data: " + str(len(x_train)))
-print ("Number of labels in our training data: " + str(len(y_train)))
-print ("Number of samples in our test data: " + str(len(x_test)))
-print ("Number of labels in our test data: " + str(len(y_test)))
-print()
-print ("Dimensions of x_train:" + str(x_train[0].shape))
-print ("Labels in x_train:" + str(y_train.shape))
-print()
-print ("Dimensions of x_test:" + str(x_test[0].shape))
-print ("Labels in y_test:" + str(y_test.shape))# printing the number of samples in x_train, x_test, y_train, y_test
-print("Initial shape or dimensions of x_train", str(x_train.shape))
 
-print ("Number of samples in our training data: " + str(len(x_train)))
-print ("Number of labels in our training data: " + str(len(y_train)))
-print ("Number of samples in our test data: " + str(len(x_test)))
-print ("Number of labels in our test data: " + str(len(y_test)))
-print()
-print ("Dimensions of x_train:" + str(x_train[0].shape))
-print ("Labels in x_train:" + str(y_train.shape))
-print()
-print ("Dimensions of x_test:" + str(x_test[0].shape))
-print ("Labels in y_test:" + str(y_test.shape))
+
 
 
 from keras.datasets import mnist
@@ -74,16 +53,16 @@ x_test = x_test.astype('float32')
 x_train /= 255
 x_test /= 255
 
-print('x_train shape:', x_train.shape)
-print(x_train.shape[0], 'train samples')
-print(x_test.shape[0], 'test samples')
+# print('x_train shape:', x_train.shape)
+# print(x_train.shape[0], 'train samples')
+# print(x_test.shape[0], 'test samples')
 
 # Now we one hot encode outputs
 y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
 
 # Let's count the number columns in our hot encoded matrix 
-print ("Number of Classes: " + str(y_test.shape[1]))
+# print ("Number of Classes: " + str(y_test.shape[1]))
 
 num_classes = y_test.shape[1]
 num_pixels = x_train.shape[1] * x_train.shape[2]
@@ -113,7 +92,7 @@ model.compile(loss = 'categorical_crossentropy',
               optimizer = keras.optimizers.Adadelta(),
               metrics = ['accuracy'])
 
-print(model.summary())
+# print(model.summary())
 
 
 history = model.fit(x_train, y_train,
@@ -123,7 +102,7 @@ history = model.fit(x_train, y_train,
           validation_data=(x_test, y_test))
 
 score = model.evaluate(x_test, y_test, verbose=0)
-print('Test loss:', score[0])
+# print('Test loss:', score[0])
 print('Test accuracy:', score[1])
 
 
